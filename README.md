@@ -1,4 +1,4 @@
-Steps for set-up
+**Steps for set-up**
 
 Run the following commands in your terminal(lines starting with # are annotations not for execution)
 #Creating a directory for the application
@@ -25,7 +25,7 @@ source environment/bin/activate
 
 #Cloning the repository
 
-git clone 
+git clone https://github.com/Bragadeesh16/todo.git
 
 #changing the directory
 
