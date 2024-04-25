@@ -29,7 +29,7 @@ git clone https://github.com/Bragadeesh16/todo.git
 
 #changing the directory
 
-cd todo
+cd todo-master
 
 #Installing dependencies
 
