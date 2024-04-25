@@ -1,0 +1,51 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(234, 29%, 20%);
+}
+
+.main-div {
+    width: 27%;
+    height: 50%;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+}
+.form{
+    padding: 5%;
+}
+.button-container {
+    display: flex;
+    justify-content: flex-end; 
+    margin-right: 8%;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 425px){
+    .main-div {
+        width: 80%;
+        height: 50%;
+        border: 2px solid black;
+        padding: 20px;
+    }
+
+}
+@media only screen and (max-width: 768px){
+    .main-div {
+        width: 35%;
+        height: 50%;
+        border: 2px solid black;
+        padding: 20px;
+    }
+
+}
+button{
+    padding: 3%;
+    background-color: peru;
+    color: white;
+    border-radius: 7px;
+}
