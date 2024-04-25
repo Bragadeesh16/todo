@@ -1,0 +1,65 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/todo_list.css' %}">
+</head>
+<body>
+    <div class="whole-div">
+        <div class="inner-div">
+            <h1>todo app</h1>   
+            <div class="overlay">
+                <form action="" method="post" id="uplode-form">
+                    {% csrf_token %}
+                    <label for="">Title</label> <br>
+                    {% render_field form.title %}  <br>
+                    <label for="">Description</label> <br>
+                    {% render_field form.description rows="7" cols="32" %} <br>
+                    <label for=""> Completed</label>
+                    {% render_field form.completed %}  <br>
+                    <button id="cancel-uplode" type="button">Cancel</button>
+                    <button type="submit" id="uplode">save</button>
+                </form>
+            </div>
+            <div class="scrol">
+                {% for list in data %}
+                <div class="todo-title">
+                    <span>
+                        <a href="{% url 'todo-edit' list.id %}" {% if list.completed %} style="text-decoration:line-through;" {% endif %}> {{list.title}} </a>  
+                        <a href="{% url 'todo-delete' list.id %}"><img src="{% static 'icons/delete.png'%}" alt="" width="4%" height="4%" class="delete-icon"></a> 
+                    </span>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div>
+                <img src="{% static 'icons/plus .png' %}" alt="" width="7%" height="8%" id="uplode-icon" class="upload-icon">
+            </div>
+
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const imgIcon = document.getElementById("uplode-icon");
+        const overlay = document.querySelector(".overlay");
+        const createForm = document.getElementById("uplode-form");
+        const cancelCreateBtn = document.getElementById("cancel-uplode");
+
+        imgIcon.addEventListener("click", function() {
+            overlay.style.display = "flex";
+            createForm.style.display = "block";
+        });
+
+        cancelCreateBtn.addEventListener("click", function(event) {
+            event.stopPropagation();
+            overlay.style.display = "none";
+            createForm.style.display = "none";
+        });
+    });
+    </script>
+</body>
+</html>

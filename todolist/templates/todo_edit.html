@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-div {
+            width: 27%;
+            height: 50%;
+            border: 2px solid black;
+            padding: 20px;
+        }
+        .form{
+            padding: 5%;
+        }
+        .button-container {
+            display: flex;
+            justify-content: flex-end; 
+            margin-right: 8%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main-div">
+    <a href="{% url 'todo-list' %}"> back</a>
+        <form action="" method="post" class="form">
+            {% csrf_token %}
+            <label for="">Title</label> <br>
+            {{form.title}} <br>
+            <label for="">Description</label> <br>
+            {{form.description}} <br>
+            <label for=""> Completed</label>
+            {{form.completed}} <br> 
+            <br>
+
+            <div class="button-container">
+                <button>save</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
